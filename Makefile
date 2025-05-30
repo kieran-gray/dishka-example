@@ -14,3 +14,6 @@ run-cli:
 
 run:
 	uv run run_http.py
+
+plot:
+	uv run python plot_dependencies.py

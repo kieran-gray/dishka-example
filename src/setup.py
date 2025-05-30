@@ -1,3 +1,4 @@
+from collections.abc import Iterable
 from dishka import (
     AsyncContainer,
     Provider,
@@ -38,10 +39,10 @@ class ApplicationProvider(Provider):
         return BookService(book_repository=book_repository)
 
 
+def get_providers() -> Iterable[Provider]:
+    return (InfrastructureProvider(), ApplicationProvider())
+
+
 def create_dependency_injection_container() -> AsyncContainer:
     settings = Settings()
-    return make_async_container(
-        InfrastructureProvider(),
-        ApplicationProvider(),
-        context={Settings: settings},
-    )
+    return make_async_container(*get_providers(), context={Settings: settings})

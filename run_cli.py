@@ -1,4 +1,4 @@
-import asyncio
+import uvloop
 
 from src.application import BookDTO, BookService
 from src.setup import create_dependency_injection_container
@@ -30,4 +30,4 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    uvloop.run(main())
