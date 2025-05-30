@@ -1,0 +1,25 @@
+[project]
+name = "dishka-example"
+version = "0.1.0"
+description = "Simple demonstration of using Dishka for dependency injection."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dishka>=1.6.0",
+    "pydantic<3.0.0,>=2.9.0",
+    "fastapi<1.0.0,>=0.115.0",
+    "uvicorn<1.0.0,>=0.32.0",
+    "uvloop<1.0.0,>=0.21.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.16.0",
+    "ruff>=0.11.12",
+]
+
+[tool.mypy]
+strict = true
+
+[tool.ruff]
+line-length = 100
