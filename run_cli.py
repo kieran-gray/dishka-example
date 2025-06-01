@@ -22,9 +22,13 @@ async def main() -> None:
         book_2_get = await book_service.get_book(book_id=book_2.id)
         assert isinstance(book_2_get, BookDTO)
         print(book_2_get)
+
         await book_service.remove_book(book_id=book_2_get.id)
-        book_2_get = await book_service.get_book(book_id=book_2.id)
-        print(book_2_get)
+
+        try:
+            book_2_get = await book_service.get_book(book_id=book_2.id)
+        except Exception as e:
+            print(e)
 
     await app_container.close()
 
