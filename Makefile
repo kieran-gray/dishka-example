@@ -9,6 +9,9 @@ lint:
 	uv run ruff check $(SRC_DIR)
 	uv run ruff format $(SRC_DIR) --check
 
+test:
+	uv run pytest --cov
+
 run-cli:
 	uv run run_cli.py
 
